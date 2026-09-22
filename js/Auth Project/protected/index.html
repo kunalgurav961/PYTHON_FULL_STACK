@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Home screen</h1>
+    <script>
+            const baseUrl = 'http://127.0.0.1:5500/js/Auth Project/'
+
+                let current_user = localStorage.getItem('current_user')
+
+                console.log(current_user)
+                if (!current_user) window.location = baseUrl + 'auth/login.html'
+    </script>
+</body>
+</html>

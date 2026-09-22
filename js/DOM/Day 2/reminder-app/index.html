@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reminder App</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="min-h-screen bg-slate-100 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+
+            <div>
+                <h1 class="text-2xl font-bold text-slate-900">
+                    Reminder App
+                </h1>
+                <p class="text-sm text-slate-500">
+                    Stay organized. Get things done.
+                </p>
+            </div>
+
+            <button onclick="openModal()" class="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700
+                       text-white px-5 py-3 rounded-xl font-semibold
+                       transition shadow-sm">
+
+                <i data-lucide="plus" class="w-5 h-5"></i>
+                Add Reminder
+            </button>
+
+        </div>
+    </nav>
+
+
+    <!-- Main -->
+    <main class="max-w-6xl mx-auto px-6 py-8">
+
+        <!-- Statistics -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
+
+            <div class="bg-white rounded-2xl p-5 border">
+                <p class="text-sm text-slate-500">Total Reminders</p>
+                <h2 id="totalCount" class="text-3xl font-bold mt-1">0</h2>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border">
+                <p class="text-sm text-slate-500">Pending</p>
+                <h2 id="pendingCount" class="text-3xl font-bold text-orange-500 mt-1">
+                    0
+                </h2>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border">
+                <p class="text-sm text-slate-500">Completed</p>
+                <h2 id="completedCount" class="text-3xl font-bold text-green-500 mt-1">
+                    0
+                </h2>
+            </div>
+
+        </div>
+
+
+        <!-- Reminder List -->
+        <div class="bg-white rounded-2xl border overflow-hidden">
+
+            <div class="px-6 py-5 border-b flex justify-between items-center">
+                <h2 class="text-lg font-bold">
+                    My Reminders
+                </h2>
+
+                <select id="filter" 
+                    class="border rounded-lg px-3 py-2 text-sm outline-none">
+
+                    <option value="all">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+
+                </select>
+            </div>
+
+
+            <!-- Tasks -->
+            <div id="reminderList" class="divide-y">
+                <!-- Reminders inserted here -->
+                
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Modal -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/50 flex items-center
+               justify-center p-5 z-50">
+
+        <div class="bg-white rounded-2xl w-full max-w-md p-6">
+
+            <div class="flex items-center justify-between mb-6">
+
+                <h2 id="modalTitle" class="text-xl font-bold">
+                    Add Reminder
+                </h2>
+
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-700">
+
+                    <i data-lucide="x"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- Form -->
+            <form id="reminderForm" onsubmit="saveReminder(event)">
+
+                <input type="hidden" id="editId">
+
+
+                <label class="block text-sm font-medium mb-2">
+                    Reminder
+                </label>
+
+                <input id="title" required placeholder="e.g. Complete Python lecture" class="w-full border rounded-xl px-4 py-3 mb-5
+                           outline-none focus:ring-2 focus:ring-indigo-500">
+
+
+                <label class="block text-sm font-medium mb-2">
+                    Date
+                </label>
+
+                <input id="date" type="date" required class="w-full border rounded-xl px-4 py-3 mb-5
+                           outline-none focus:ring-2 focus:ring-indigo-500">
+
+
+                <label class="block text-sm font-medium mb-2">
+                    Time
+                </label>
+
+                <input id="time" type="time" required class="w-full border rounded-xl px-4 py-3 mb-6
+                           outline-none focus:ring-2 focus:ring-indigo-500">
+
+
+                <div class="flex gap-3">
+
+                    <button type="button" onclick="closeModal()" class="flex-1 border rounded-xl py-3 font-semibold">
+
+                        Cancel
+
+                    </button>
+
+                    <button type="submit" class="flex-1 bg-indigo-600 hover:bg-indigo-700
+                               text-white rounded-xl py-3 font-semibold">
+
+                        Save Reminder
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
