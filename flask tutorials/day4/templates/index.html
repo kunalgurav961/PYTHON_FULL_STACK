@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title%} Home page {% endblock %} {% block
+content%}
+<div class="flex flex-col gap-5 justfy-center items-center">
+  <div class="w-full h-60 rounded-3xl flex justify-center items-center">
+    <h1 class="text-5xl">Hello this is home page!</h1>
+  </div>
+  <div>
+    <a
+      href="/about"
+      class="cursor-pointer border rounded-2xl px-5 py-2 text white"
+      >about</a
+    >
+    <a
+      href="/contact"
+      class="cursor-pointer border rounded-2xl px-5 py-2 text white"
+      >Contact
+    </a>
+  </div>
+</div>
+{% endblock %}
