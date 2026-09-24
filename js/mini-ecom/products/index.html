@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-white border-b">
+    <div class="max-w-7xl mx-auto px-6 py-5">
+      <h1 class="text-3xl font-bold">Products</h1>
+      <p class="text-gray-500 mt-1">Explore our latest collection</p>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-8">
+
+    <!-- Search & Filters -->
+    <div class="bg-white rounded-2xl shadow-sm border p-5 mb-8">
+
+      <div class="flex flex-col md:flex-row gap-4">
+
+        <!-- Search -->
+        <div class="flex-1 relative">
+          <input
+            type="text"
+            placeholder="Search products..."
+            class="w-full border border-gray-200 rounded-xl px-5 py-3 pl-12 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          />
+
+          <svg
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+            />
+          </svg>
+        </div>
+
+        <!-- Category -->
+        <select
+            onchange="handleCategory()"
+            id="cat"
+          class="md:w-64 border border-gray-200 rounded-xl px-5 py-3 bg-white outline-none focus:ring-2 focus:ring-indigo-500"
+        >
+          <option value="all">All Categories</option>
+        </select>
+
+      </div>
+    </div>
+
+    <!-- Results Header -->
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h2 class="text-xl font-semibold">All Products</h2>
+        <p class="text-sm text-gray-500">24 products found</p>
+      </div>
+
+      <select
+        class="border border-gray-200 rounded-lg px-4 py-2 bg-white text-sm outline-none"
+      >
+        <option>Sort: Featured</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+        <option>Newest</option>
+      </select>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center items-center gap-2 mt-12">
+
+      <button class="px-4 py-2 border rounded-lg hover:bg-gray-100">
+        Previous
+      </button>
+
+      <button class="px-4 py-2 rounded-lg bg-indigo-600 text-white">
+        1
+      </button>
+
+      <button class="px-4 py-2 border rounded-lg hover:bg-gray-100">
+        2
+      </button>
+
+      <button class="px-4 py-2 border rounded-lg hover:bg-gray-100">
+        3
+      </button>
+
+      <button class="px-4 py-2 border rounded-lg hover:bg-gray-100">
+        Next
+      </button>
+
+    </div>
+
+  </main>
+  <script src="products.js"></script>
+</body>
+</html>
